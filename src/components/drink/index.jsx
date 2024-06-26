@@ -1,3 +1,4 @@
+import { Layer } from '../layer'
 import './index.css'
 
 export const Drink = ({name, ordered, image, layers}) => 
@@ -9,10 +10,9 @@ export const Drink = ({name, ordered, image, layers}) =>
                 </div>
                 <div className="drink__info">
                     <h3>{name}</h3>
-                    <div className="layer">
-                        <div className="layer__color" style={{backgroundColor: '#613916' }}></div>
-                        <div className="layer__label">espresso</div>
-                    </div>
+                    {layers.map((layer, index) => (
+                        <Layer color={layer.color} label={layer.label}/>
+                    ))}
                 </div>
             </div>
             <form className="drink__controls">

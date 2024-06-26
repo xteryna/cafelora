@@ -26,8 +26,6 @@ export const Menu = () => {
                             },
                         ]}
                     />
-
-                    
                 </div>
 
                 <div className="order-detail">
