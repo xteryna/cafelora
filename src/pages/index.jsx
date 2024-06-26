@@ -20,3 +20,16 @@ document.querySelector('#root').innerHTML = render(
     <Footer/>
   </div>
 );
+
+
+
+const hamburgerMenu = document.querySelector(".nav-btn")
+const rollOut = document.querySelector(".rollout-nav")
+
+hamburgerMenu.addEventListener("click", ()=> {
+  rollOut.classList.toggle("nav-closed")
+})
+
+rollOut.addEventListener("click", ()=> {
+  rollOut.classList.toggle("nav-closed")
+})
