@@ -18,7 +18,7 @@ document.querySelector('#root').innerHTML = render(
     <Header/>
     <main>
       <Banner/>
-      <Menu drinks={drinks}/>
+      <Menu drinks={drinks} showMenu={true}/>
       <Gallery/>
       <Contact/>
     </main>
