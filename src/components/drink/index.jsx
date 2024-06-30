@@ -6,7 +6,7 @@ export const Drink = ({id,name, ordered, image, layers}) => {
     let btnClass = "order-btn"
     if (ordered === true) {
         btnText = "Zrušit",
-        btnClass = "order-btn, order-btn--ordered"
+        btnClass = "order-btn order-btn--ordered"
     }
     
 
