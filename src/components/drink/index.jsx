@@ -1,8 +1,17 @@
 import { Layer } from '../layer'
 import './index.css'
 
-export const Drink = ({id,name, ordered, image, layers}) => 
-    (
+export const Drink = ({id,name, ordered, image, layers}) => {
+    let btnText = "Objednat"
+    let btnClass = "order-btn"
+    if (ordered === true) {
+        btnText = "Zrušit",
+        btnClass = "order-btn, order-btn--ordered"
+    }
+    
+
+
+    return(
         <div className="drink">
             <div className="drink__product">
                 <div className="drink__cup">
@@ -15,11 +24,12 @@ export const Drink = ({id,name, ordered, image, layers}) =>
                     ))}
                 </div>
             </div>
-            <form className="drink__controls">
-                <input type="hidden" className="order-id" value="0" />
-                <button className="order-btn">
-                Objednat
+            <form className="drink__controls" data-id={id}>
+                <input type="hidden" className="order-id" value="0"/>
+                <button className={btnClass}>
+                    {btnText}
                 </button>
             </form>
         </div>
     )
+}

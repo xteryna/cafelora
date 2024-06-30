@@ -29,6 +29,7 @@ document.querySelector('#root').innerHTML = render(
 
 const hamburgerMenu = document.querySelector(".nav-btn")
 const rollOut = document.querySelector(".rollout-nav")
+const orderBtns = document.querySelectorAll(".drink__controls")
 
 hamburgerMenu.addEventListener("click", ()=> {
   rollOut.classList.toggle("nav-closed")
@@ -37,3 +38,29 @@ hamburgerMenu.addEventListener("click", ()=> {
 rollOut.addEventListener("click", ()=> {
   rollOut.classList.toggle("nav-closed")
 })
+
+// Přidání posluchače událostí na každý objednávací formulář
+orderBtns.forEach((orderBtn) => {
+  orderBtn.addEventListener("submit", async(e) => {
+    e.preventDefault(); // Zabrání výchozímu chování (odeslání formuláře a reloadu stránky)
+    const drinkId = Number(e.target.dataset.id); // Získání id nápoje pomocí dataset.id
+    console.log(`Drink ID: ${drinkId}`);
+    
+    const edDrink = drinks.find((d) => d.id === drinkId)
+    console.log(`edDrink: ${edDrink}`)
+    const drinkOrderedValue = !edDrink.ordered;
+    console.log(`drinkOrderedValue: ${drinkOrderedValue}`)
+
+  
+    const response = await fetch(`http://localhost:4000/api/drinks/${drinkId}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify([{ op: 'replace', path: '/ordered', value: drinkOrderedValue }]),
+    });
+    const data = await response.json();
+    console.log('API Response:', data);
+    window.location.reload();
+  });
+});
