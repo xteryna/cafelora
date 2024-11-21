@@ -13,7 +13,7 @@ body {
   margin: 0;
 
   background-color: #e67646;
-  background-image: url("./img/spots.png");
+  background-image: url("/img/spots.png");
 
   color: white;
 }

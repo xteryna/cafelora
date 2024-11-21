@@ -1,7 +1,7 @@
 /* Banner */
 .banner {
     padding-top: 0;
-    background-image: url("./img/beans.jpg");
+    background-image: url("/img/beans.jpg");
     background-size: cover;
     background-position: top center;
   }

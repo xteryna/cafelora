@@ -2,7 +2,7 @@
 .gallery {
     min-height: 100vh;
     color: white;
-    background-image: url("./img/gallery.jpg");
+    background-image: url("/img/gallery.jpg");
     background-size: cover;
     background-position: top center;
     background-attachment: fixed;
