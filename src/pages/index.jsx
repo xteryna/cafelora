@@ -52,12 +52,12 @@ orderBtns.forEach((orderBtn) => {
     console.log(`drinkOrderedValue: ${drinkOrderedValue}`)
 
   
-    const response = await fetch(`http://localhost:4000/api/drinks/${drinkId}`, {
+    const response = await fetch(`https://cafelora-api-1.onrender.com/api/drinks/${drinkId}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify([{ op: 'replace', path: '/ordered', value: drinkOrderedValue }]),
+      body: JSON.stringify({ ordered: drinkOrderedValue }),
     });
     const data = await response.json();
     console.log('API Response:', data);

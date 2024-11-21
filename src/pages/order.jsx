@@ -8,6 +8,7 @@ import { Order } from '../components/order';
 import { fetchOrderedDrink } from '../funtions/fc';
 
 const items = await fetchOrderedDrink()
+console.log(items)
 
 document.querySelector('#root').innerHTML = render(
   <div className="page">
