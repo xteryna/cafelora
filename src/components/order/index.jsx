@@ -17,7 +17,7 @@ export const Order = ({items}) => {
     return (
         <main className="order">
             <div className="container order__content">
-                <h1>Vaše objedávnka</h1>
+                <h1>Vaše objednávka</h1>
                 {orderHTML}
 
             </div>
