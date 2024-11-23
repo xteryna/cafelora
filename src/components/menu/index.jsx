@@ -2,6 +2,24 @@ import { Drink } from '../drink'
 import './index.css'
 
 export const Menu = ({drinks}) => {
+    // Filtrace nápojů s validní strukturou
+    const validDrinks = drinks.filter(
+        (drink) =>
+        typeof drink.id === 'number' &&
+        typeof drink.name === 'string' &&
+        typeof drink.ordered === 'boolean' &&
+        Array.isArray(drink.layers) &&
+        drink.layers.length > 0 &&
+        drink.layers.every(
+            (layer) =>
+            typeof layer.color === 'string' &&
+            typeof layer.label === 'string'
+        ) &&
+        typeof drink.image === 'string'
+    );
+
+
+
     return (
         <section className="menu" id="menu">
             <div className="container">
@@ -10,7 +28,7 @@ export const Menu = ({drinks}) => {
                     Vyberte si z našeho interaktivního menu a nemusíte čekat na obsluhu
                 </p>
                 <div className="drinks-list">
-                    {drinks.map((drink) => (
+                    {validDrinks.map((drink) => (
                         <Drink
                             key={drink.id}
                             id={drink.id}
